@@ -17,5 +17,12 @@ class TaxCalculatorSpec extends AnyWordSpec {
         assert(result == 0)
       }
     }
+    "return the total amount of tax to pay" when {
+      "the income is exactly on the personal tax limit" in {
+        val result: Double = taxCalculator.calculateTax(10000)
+
+        assert(result == 0)
+      }
+    }
   }
 }
