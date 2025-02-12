@@ -13,7 +13,7 @@ class TaxCalculator {
 
   // A method to calculate the total amount of tax to be paid, returned as a double
   def calculateTax(income: Double): Double = {
-    ???
+    personalAllowance * personalAllowanceRate
   }
 
   // A method which can tell you if someone is a higher rate taxpayer
