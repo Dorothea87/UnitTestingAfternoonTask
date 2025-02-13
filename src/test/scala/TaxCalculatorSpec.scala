@@ -19,14 +19,14 @@ class TaxCalculatorSpec extends AnyWordSpec {
     }
     "return the total amount of tax to pay" when {
       "the income is exactly on the personal tax limit" in {
-        val result: Double = taxCalculator.calculateTax(10000)
+        val result: Double = taxCalculator.calculateTax(12570)
 
         assert(result == 0)
       }
     }
     "return the total amount of tax to pay" when {
       "the income is just over the personal tax limit" in {
-        val result: Double = taxCalculator.calculateTax(10001)
+        val result: Double = taxCalculator.calculateTax(12571)
 
         assert(result == 0.2)
       }
@@ -35,42 +35,42 @@ class TaxCalculatorSpec extends AnyWordSpec {
       "the income is within the basic rate limit" in {
         val result: Double = taxCalculator.calculateTax(25000)
 
-        assert(result == 3000)
+        assert(result == 2486)
       }
     }
     "return the total amount of tax to pay" when {
       "the income is exactly on the basic rate limit" in {
-        val result: Double = taxCalculator.calculateTax(50000)
+        val result: Double = taxCalculator.calculateTax(50270)
 
-        assert(result == 8000)
+        assert(result == 7540)
       }
     }
     "return the total amount of tax to pay" when {
       "the income is just over the basic rate limit" in {
-        val result: Double = taxCalculator.calculateTax(50001)
+        val result: Double = taxCalculator.calculateTax(50271)
 
-        assert(result == 8000.4)
+        assert(result == 7540.4)
       }
     }
     "return the total amount of tax to pay" when {
       "the income is within the higher rate limit" in {
         val result: Double = taxCalculator.calculateTax(75000)
 
-        assert(result == 18000)
+        assert(result == 17432)
       }
     }
     "return the total amount of tax to pay" when {
       "the income is exactly on the higher rate limit" in {
-        val result: Double = taxCalculator.calculateTax(125000)
+        val result: Double = taxCalculator.calculateTax(125140)
 
-        assert(result == 38000)
+        assert(result == 37488)
       }
     }
     "return the total amount of tax to pay" when {
       "the income is above the basic rate limit" in {
         val result: Double = taxCalculator.calculateTax(150000)
 
-        assert(result == 51250)
+        assert(result == 51189)
       }
     }
   }
