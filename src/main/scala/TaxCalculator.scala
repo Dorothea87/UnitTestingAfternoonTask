@@ -18,9 +18,9 @@ class TaxCalculator {
     } else if (income > personalAllowance && income <= basicRateLimit) {
       (income - personalAllowance) * basicRate
     } else if (income > basicRateLimit && income <= higherRateLimit) {
-      (personalAllowance * personalAllowanceRate) + ((basicRateLimit - personalAllowance) * basicRate) + ((income - basicRateLimit) * higherRate))
+      (personalAllowance * personalAllowanceRate) + ((basicRateLimit - personalAllowance) * basicRate) + ((income - basicRateLimit) * higherRate)
     } else if ( income > higherRateLimit) {
-      ((basicRateLimit * basicRate) + ((higherRateLimit - basicRateLimit) * higherRate) + ((income - additionalRate) * additionalRate)
+      (basicRateLimit * basicRate) + ((higherRateLimit - basicRateLimit) * higherRate) + ((income - higherRateLimit) * additionalRate)
       //(income * additionalRate)
     } else {
       0.0
